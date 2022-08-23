@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 15:00:52 by steh              #+#    #+#             */
-/*   Updated: 2022/08/23 15:59:00 by steh             ###   ########.fr       */
+/*   Created: 2022/08/23 16:01:21 by steh              #+#    #+#             */
+/*   Updated: 2022/08/23 16:03:44 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iostream>
-
-class Zombie
+Zombie	*newZombie(std::string name)
 {
-	private:
-		std::string		_name;
-	public:
-		Zombie(void);
-		Zombie(std::string name);
-		~Zombie(void);
-		void			announce(void);
-		std::string		getName(void) const;
-		void			setName(std::string name);
-};
+	Zombie *zombie;
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+	zombie = new Zombie(name);
+	// zombie->setName(name);
+	return (zombie);
+}

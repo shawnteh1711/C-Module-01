@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 15:00:52 by steh              #+#    #+#             */
-/*   Updated: 2022/08/23 15:59:00 by steh             ###   ########.fr       */
+/*   Created: 2022/08/23 15:49:00 by steh              #+#    #+#             */
+/*   Updated: 2022/08/23 16:39:25 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <string>
+#include "Zombie.hpp"
 #include <iostream>
 
-class Zombie
+Zombie*	zombieHorde(int N, std::string name);
+
+int main(void)
 {
-	private:
-		std::string		_name;
-	public:
-		Zombie(void);
-		Zombie(std::string name);
-		~Zombie(void);
-		void			announce(void);
-		std::string		getName(void) const;
-		void			setName(std::string name);
-};
+	Zombie 		*zombies;
+	int			n;
+	std::string	name;
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+	std::cout << "Enter number of zombies to create : ";
+	std::cin >> n;
+	std::cin.ignore();
+	std::cout << "Enter name of zombies: ";
+	getline(std::cin, name);
+	zombies = zombieHorde(n, name);
+	delete [] zombies;
+	return (0);
+}

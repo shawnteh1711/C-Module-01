@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 15:00:52 by steh              #+#    #+#             */
-/*   Updated: 2022/08/23 15:59:00 by steh             ###   ########.fr       */
+/*   Created: 2022/08/23 16:19:06 by steh              #+#    #+#             */
+/*   Updated: 2022/08/23 16:38:25 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iostream>
-
-class Zombie
+Zombie*	zombieHorde(int N, std::string name)
 {
-	private:
-		std::string		_name;
-	public:
-		Zombie(void);
-		Zombie(std::string name);
-		~Zombie(void);
-		void			announce(void);
-		std::string		getName(void) const;
-		void			setName(std::string name);
-};
+	if (!N)
+		return (NULL);
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
-#endif
+	Zombie	*zombies;
+	//Dynamic memory allocation in Classes
+	zombies = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		zombies[i].setName(name);
+		zombies[i].announce();
+	}
+	return (zombies);
+}
