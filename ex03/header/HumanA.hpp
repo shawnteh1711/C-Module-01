@@ -6,7 +6,7 @@
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:08:35 by steh              #+#    #+#             */
-/*   Updated: 2022/08/23 18:47:35 by steh             ###   ########.fr       */
+/*   Updated: 2022/08/30 18:39:24 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 class HumanA
 {
 	private:
-		Weapon		&_weapon;
 		string		_name;
+		Weapon		&_weapon;
 
 	public:
 		HumanA(string name, Weapon &weapon);

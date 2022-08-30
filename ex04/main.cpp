@@ -6,7 +6,7 @@
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 19:40:36 by steh              #+#    #+#             */
-/*   Updated: 2022/08/24 18:23:12 by steh             ###   ########.fr       */
+/*   Updated: 2022/08/30 20:23:06 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ using std::cout;
 using std::endl;
 using std::stringstream;
 
-string	ft_replace(string line, string ori, string sub);
+string	ft_replace(string content, string ori, string sub);
+
 // ref: https://www.guru99.com/cpp-file-read-write-open.html
 int main(int argc, char *argv[])
 {
@@ -29,7 +30,9 @@ int main(int argc, char *argv[])
 	fstream			outfile;
 	stringstream	ss;
 	string			content;
+	id_t			len;
 
+	len = 0;
 	if (argc != 4)
 	{
 		cout << "Enter ./program filename ori_str sub_str" << endl;
@@ -39,7 +42,10 @@ int main(int argc, char *argv[])
 	string filename = argv[1] + a;
 	infile.open(argv[1], ios::in);
 	if (!infile)
+	{
 		cout << "No such infile file";
+		return (2);
+	}
 	else
 		outfile.open(filename, ios::out);
 	ss << infile.rdbuf();
@@ -47,7 +53,7 @@ int main(int argc, char *argv[])
 	if (infile && outfile)
 	{
 		content = ft_replace(content, argv[2], argv[3]);
-		outfile << content << endl;
+		outfile << content;
 	}
 	else if (!outfile)
 	{
@@ -61,13 +67,13 @@ int main(int argc, char *argv[])
 // (npos = 18446744073709551615 / 2 ^ 64 / -1)
 string	ft_replace(string content, string ori, string sub)
 {
+	size_t	pos;
+	int		len;
+	
+	pos = 0;
+	len = ori.length();
 	while (true)
-	{
-		size_t	pos;
-		int		len;
-
-		pos = 0;
-		len = ori.length();
+	{	
 		pos = content.find(ori, pos);
 		if (pos == string::npos)
 			break ;

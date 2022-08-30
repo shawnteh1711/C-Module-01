@@ -6,7 +6,7 @@
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 18:05:38 by steh              #+#    #+#             */
-/*   Updated: 2022/08/23 18:37:55 by steh             ###   ########.fr       */
+/*   Updated: 2022/08/30 18:39:49 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::~Weapon()
 	return ;
 }
 
-string	Weapon::getType(void) const
+const string	Weapon::getType(void) const
 {
 	return (this->_type);
 }
